@@ -1,0 +1,80 @@
+.layout {
+  display: grid;
+  grid-template-areas:
+  "header"
+  "profile content"
+  "footer";
+}
+
+.header {
+  background-color: var(--header-color);
+  padding: .5rem 2rem;
+}
+
+.navbar {
+  width: 90vw;
+  max-width: 1000px;
+  display: flex;
+}
+
+.nav-content {
+  display: flex;
+  text-align: left;
+}
+
+.search-form {
+  margin-top: .3rem;
+  position: relative;
+}
+
+.search-form::after {
+  content: "/";
+  color: grey;
+  border: grey solid 1px;
+  font-size: .8rem;
+  font-weight: lighter;
+  padding: .14rem .38rem;
+  border-radius: 5px;
+  position: absolute;
+  top: 10%;
+  right: 9%;
+}
+
+.search-form-input {
+  border-radius: 5px;
+  margin: auto 1rem;
+  height: 1.9rem;
+  max-height: 32px;
+  width: 16rem;
+  background-color: var(--header-color);
+  border: grey solid 1px;
+  padding: .2rem .75rem;
+  color: #cacaca;
+}
+
+.search-form-input:focus {
+  outline: none;
+}
+
+.search-form-input input::placeholder{
+  color: #cacaca;
+}
+
+.nav-content a {
+  color: white;
+  height: 1.8;
+  margin: auto .5rem;
+  text-decoration: none;
+}
+
+.nav-content a:hover {
+  opacity: .7;
+}
+
+.nav-content a:first-of-type {
+  margin-left: 0rem;
+}
+
+.nav-profile {
+  text-align: right;
+}
