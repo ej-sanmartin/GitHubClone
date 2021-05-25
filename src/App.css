@@ -9,6 +9,8 @@
 .header {
   background-color: var(--header-color);
   padding: .5rem 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar {
@@ -19,7 +21,6 @@
 
 .nav-content {
   display: flex;
-  text-align: left;
 }
 
 .search-form {
@@ -63,7 +64,7 @@
 .nav-content a {
   color: white;
   height: 1.8;
-  margin: auto .5rem;
+  margin: auto .45rem;
   text-decoration: none;
 }
 
@@ -76,5 +77,14 @@
 }
 
 .nav-profile {
-  text-align: right;
+  /* TODO: vertical center this section */
+  display: flex;
+}
+
+.nav-profile-dropdown-button {
+
+}
+
+.nav-profile-line-hover-effect:hover {
+  opacity: .7;
 }
