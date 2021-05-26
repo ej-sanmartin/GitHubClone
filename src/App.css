@@ -1,10 +1,10 @@
 .layout {
   display: grid;
-  row-gap: 3em;
+  row-gap: 4em;
   grid-template-areas:
-  "header header header"
-  "profile info info"
-  "footer footer footer";
+  "header header header header header"
+  "profile info info info info"
+  "footer footer footer footer footer";
 }
 
 .header {
@@ -31,7 +31,7 @@ nav {
 }
 
 .search-form {
-  margin-top: .3rem;
+  margin-top: .35rem;
   position: relative;
 }
 
@@ -44,7 +44,7 @@ nav {
   padding: .14rem .38rem;
   border-radius: 5px;
   position: absolute;
-  top: 10%;
+  top: 12%;
   right: 9%;
 }
 
@@ -122,13 +122,120 @@ nav {
 .profile-section {
   grid-area: profile;
   min-height: 100vh;
-  width: 30vw;
-  background-color: red;
+  width: 20vw;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+}
+
+.profile-image {
+  position: relative;
+  z-index: 2;
+  margin-left: -1rem;
+}
+
+.happy-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 25px;
+  border: grey solid 1px;
+  background-color: white;;
+  padding: .42rem;
+  bottom: 16%;
+  right: 6%;
+}
+
+.profile-card > h2,
+.profile-card > h3 {
+  margin: 0;
+}
+
+.profile-card > h2 {
+  font-weight: bold;
+}
+
+.profile-card > h3 {
+  font-size: 1rem;
+  color: grey;
+}
+
+.profile-card > p {
+  margin-top: 1em;
+  font-weight: lighter;
 }
 
 .content-section {
+  color: grey;
+  margin-left: 2rem;
   grid-area: info;
   min-height: 100vh;
-  width: 70vw;
-  background-color: blue !important;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal-line-full-page {
+  border: solid 1px #eee;
+  width: 200vw;
+  color: #cacaca;
+  height: 1px;
+  margin-left: -50%;
+}
+
+.search-repository-form {
+  border-bottom: solid 1px #eee;
+}
+
+.results-message {
+  padding-bottom: 1.5rem;
+  width: 15vw;
+  color: var(--base-font-color);
+  border-bottom: solid 1px #eee;
+}
+
+.content-section-links-row {
+  display: flex;
+  justify-content: start;
+}
+
+.content-section-links {
+  display: flex;
+  flex-direction: column;
+  color: var(--base-font-color);
+}
+
+.content-link {
+  display: flex;
+}
+
+.content-section-links a {
+  color: var(--base-font-color);
+  text-decoration: none;
+}
+
+.bar-chart-icon {
+  transform: rotateX(180deg);
+}
+
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.repo-header a {
+  text-decoration: none;
+}
+
+.repo-info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.repo-info div {
+  margin-right: 1.5rem;
 }
