@@ -80,26 +80,26 @@ function App() {
       <section className="content-section">
         <div className="content-section-links">
           <div className="content-section-links-row">
-            <a className="content-link">
+            <a href="#" className="content-link">
               <IconContext.Provider value={{ color: '#cacaca' }}>
                 <BiBookOpen size={20} />
               </IconContext.Provider>
               <p>Overview</p>
             </a>
-            <a className="content-link">
+            <a href="#" className="content-link">
               <IconContext.Provider value={{ color: '#cacaca' }}>
                 <FiBook size={20} />
               </IconContext.Provider>
               <p>Repositories</p>
-              <p>160</p>
+              <p className="repo-count">160</p>
             </a>
-            <a className="content-link">
+            <a href="#" className="content-link">
               <IconContext.Provider value={{ color: '#cacaca', className: 'bar-chart-icon' }}>
                 <BiBarChartSquare rotate={120} size={20} />
               </IconContext.Provider>
               <p>Projects</p>
             </a>
-            <a className="content-link">
+            <a href="#" className="content-link">
               <IconContext.Provider value={{ color: '#cacaca' }}>
                 <IoCubeOutline size={20} />
               </IconContext.Provider>
@@ -116,7 +116,7 @@ function App() {
           />
         </form>
         <hr className="hr-line-under-form" />
-        <p className="results-message"><span>124</span> results for <span>public</span> repositories</p>
+        <p className="results-message"><span className="bold-style">124</span> results for <span className="bold-style">public</span> repositories</p>
         <hr className="hr-line-under-result-message" />
         <article className="repo">
           <div className="repo-header">
