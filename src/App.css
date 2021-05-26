@@ -30,7 +30,8 @@ nav {
   display: flex;
 }
 
-.search-form {
+.search-form,
+.search-repository-form {
   margin-top: .35rem;
   position: relative;
 }
@@ -60,12 +61,17 @@ nav {
   color: #cacaca;
 }
 
-.search-form-input:focus {
+.search-form-input:focus,
+.search-repository-input:focus {
   outline: none;
 }
 
-.search-form-input input::placeholder{
+.search-form-input input::placeholder {
   color: #cacaca;
+}
+
+.search-repository-form input::placeholder {
+  color: #aaa;
 }
 
 .nav-content a {
@@ -183,7 +189,16 @@ nav {
 }
 
 .search-repository-form {
+  padding-top: .2rem;
+  padding-bottom: 1rem;
   border-bottom: solid 1px #eee;
+}
+
+.search-repository-input {
+  width: 100%;
+  padding: .45rem .5rem;
+  border: #ccc solid 1px;
+  border-radius: 5px;
 }
 
 .results-message {
@@ -257,13 +272,29 @@ span {
 .star-button {
   display: flex;
   border: 1px solid gray;
-  padding: .4rem 1rem;
-  border-radius: 15px;
+  padding: .4rem .8rem;
+  border-radius: 5px;
   height: fit-content;
+  transition: 300ms;
+}
+
+.star-button:hover {
+  border-color: grey;
+  opacity: .8;
+  background-color: #bbb;
+  color: #eee;
+}
+
+.star-button:last-child:hover {
+  text-decoration: none;
 }
 
 .star-button p {
   margin: 0;
+  margin-top: .1rem;
+  margin-left: .25rem;
+  font-size: 12px;
+  font-weight: bold;
   height: fit-content;
 }
 
@@ -279,11 +310,13 @@ span {
 }
 
 .repo-info div {
-  margin-right: 1.5rem;
+  margin-right: 1.35rem;
 }
 
 .repo-info div p {
   margin: 0;
+  margin-top: .15rem;
+  margin-left: .2rem;
   font-size: .8rem;
 }
 

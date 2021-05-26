@@ -123,7 +123,7 @@ function App() {
             <a href="#"><h2>Repo-address</h2></a>
             <a className="star-button">
               <IconContext.Provider value={{ color: 'gray' }}>
-                <FiStar size={18} />
+                <FiStar size={16} />
               </IconContext.Provider>
               <p>Star</p>
             </a>
