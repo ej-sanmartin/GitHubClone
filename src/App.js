@@ -80,31 +80,31 @@ function App() {
       <section className="content-section">
         <div className="content-section-links">
           <div className="content-section-links-row">
-            <div className="content-link">
+            <a className="content-link">
               <IconContext.Provider value={{ color: '#cacaca' }}>
-                <BiBookOpen size={24} />
+                <BiBookOpen size={20} />
               </IconContext.Provider>
               <p>Overview</p>
-            </div>
-            <div className="content-link">
+            </a>
+            <a className="content-link">
               <IconContext.Provider value={{ color: '#cacaca' }}>
-                <FiBook size={24} />
+                <FiBook size={20} />
               </IconContext.Provider>
               <p>Repositories</p>
               <p>160</p>
-            </div>
-            <div className="content-link">
+            </a>
+            <a className="content-link">
               <IconContext.Provider value={{ color: '#cacaca', className: 'bar-chart-icon' }}>
-                <BiBarChartSquare rotate={120} size={24} />
+                <BiBarChartSquare rotate={120} size={20} />
               </IconContext.Provider>
               <p>Projects</p>
-            </div>
-            <div className="content-link">
+            </a>
+            <a className="content-link">
               <IconContext.Provider value={{ color: '#cacaca' }}>
-                <IoCubeOutline size={24} />
+                <IoCubeOutline size={20} />
               </IconContext.Provider>
-              <p>Overview</p>
-            </div>
+              <p>Packages</p>
+            </a>
           </div>
           <hr className="horizontal-line-full-page" />
         </div>
@@ -123,7 +123,7 @@ function App() {
             <a href="#"><h2>Repo-address</h2></a>
             <a className="star-button">
               <IconContext.Provider value={{ color: 'gray' }}>
-                <FiStar size={24} />
+                <FiStar size={18} />
               </IconContext.Provider>
               <p>Star</p>
             </a>
@@ -135,13 +135,13 @@ function App() {
             </div>
             <div className="star-info">
               <IconContext.Provider value={{ color: 'gray' }}>
-                <FiStar size={24} />
+                <FiStar size={18} />
               </IconContext.Provider>
               <p>20</p>
             </div>
             <div className="fork-info">
               <IconContext.Provider value={{ color: 'gray' }}>
-                <BiGitRepoForked size={24} />
+                <BiGitRepoForked size={18} />
               </IconContext.Provider>
               <p>4</p>
             </div>

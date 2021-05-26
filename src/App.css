@@ -212,6 +212,14 @@ span {
 .content-link {
   display: flex;
   margin-right: 2rem;
+  padding-bottom: .75rem;
+}
+
+.content-link p {
+  height: fit-content;
+  margin: 0;
+  margin-top: .1rem;
+  margin-left: .35rem;
 }
 
 .content-section-links a {
@@ -275,7 +283,8 @@ span {
 }
 
 .repo-info div p {
-  margin: 0;;
+  margin: 0;
+  font-size: .8rem;
 }
 
 .language-info,
