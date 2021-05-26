@@ -104,10 +104,6 @@ nav {
   margin: auto -.1rem;
 }
 
-.nav-item-hover-effect:hover {
-  opacity: .7;
-}
-
 .notification::after {
   content: "";
   height: 10px;
@@ -265,6 +261,7 @@ span {
 
 .repo-description {
   margin: .5rem 0;
+  margin-bottom: 1.8rem;
   overflow-wrap: break-word;
 }
 
@@ -277,32 +274,16 @@ span {
   margin-right: 1.5rem;
 }
 
+.repo-info div p {
+  margin: 0;;
+}
+
 .language-info,
 .star-info,
 .fork-info {
   display: flex;
 }
 
-footer {
+.footer {
   grid-area: footer;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
-  margin: 0 2rem;
-  max-width: 95vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-top: 1px solid #ccc;
-}
-
-footer a {
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-footer a:visited {
-  color: blue;
 }

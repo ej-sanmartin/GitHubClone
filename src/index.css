@@ -19,3 +19,8 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
 }
+
+
+.nav-item-hover-effect:hover {
+  opacity: .7;
+}
