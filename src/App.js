@@ -115,7 +115,7 @@ function App() {
           />
         </form>
         <hr className="hr-line-under-form" />
-        <p className="results-message"><bold>124</bold> results for <bold>public</bold> repositories</p>
+        <p className="results-message"><span>124</span> results for <span>public</span> repositories</p>
         <hr className="hr-line-under-result-message" />
         <article className="repo">
           <div className="repo-header">

@@ -2,9 +2,9 @@
   display: grid;
   row-gap: 4em;
   grid-template-areas:
-  "header header header header header"
-  "profile info info info info"
-  "footer footer footer footer footer";
+  "header header header header"
+  "profile info info info"
+  "footer footer footer footer";
 }
 
 .header {
@@ -172,7 +172,6 @@ nav {
 .content-section {
   color: grey;
   margin-left: 2rem;
-  padding-right: 6rem;
   grid-area: info;
   min-height: 100vh;
   display: flex;
@@ -193,9 +192,14 @@ nav {
 
 .results-message {
   padding-bottom: 1.5rem;
-  width: 15vw;
+  width: 20vw;
   color: var(--base-font-color);
   border-bottom: solid 1px #eee;
+  margin: 0;
+}
+
+span {
+  font-weight: bold;
 }
 
 .content-section-links-row {
@@ -211,7 +215,7 @@ nav {
 
 .content-link {
   display: flex;
-  padding-right: 2rem;
+  margin-right: 2rem;
 }
 
 .content-section-links a {
@@ -223,6 +227,12 @@ nav {
   transform: rotateX(180deg);
 }
 
+.repo {
+  border-bottom: 1px #ccc solid;
+  padding-bottom: 2rem;
+  width: 70vw;
+}
+
 .repo-header {
   display: flex;
   justify-content: space-between;
@@ -232,11 +242,25 @@ nav {
   text-decoration: none;
 }
 
+.repo-header a:hover {
+  text-decoration: underline;
+}
+
+.repo-header a:visited {
+  color: blue;
+}
+
 .star-button {
   display: flex;
   border: 1px solid gray;
-  padding: .25rem 2rem;
+  padding: .4rem 1rem;
   border-radius: 15px;
+  height: fit-content;
+}
+
+.star-button p {
+  margin: 0;
+  height: fit-content;
 }
 
 .repo-description {
@@ -277,4 +301,8 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+footer a:visited {
+  color: blue;
 }
