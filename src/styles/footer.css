@@ -21,3 +21,7 @@ footer {
   footer a:visited {
     color: blue;
   }
+
+  .copyright:hover {
+    text-decoration: none;
+  }

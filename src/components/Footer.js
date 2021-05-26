@@ -6,7 +6,7 @@ import '../styles/footer.css';
 const Footer = ({ style }) => {
     return (
         <footer className={style}>
-            <a>© 2021 Github, Inc.</a>
+            <a className="copyright">© 2021 Github, Inc.</a>
             <a href="https://docs.github.com/en/github/site-policy/github-terms-of-service" target="_blank" rel="noopener noreferrer">Terms</a>
             <a href="https://docs.github.com/en/github/site-policy/github-privacy-statement" target="_blank" rel="noopener noreferrer">Privacy</a>
             <a href="https://github.com/security" target="_blank" rel="noopener noreferrer">Security</a>

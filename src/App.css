@@ -1,6 +1,6 @@
 .layout {
   display: grid;
-  row-gap: 4em;
+  row-gap: 2rem;
   grid-template-areas:
   "header header header header"
   "profile info info info"
