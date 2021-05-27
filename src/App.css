@@ -110,8 +110,6 @@ nav {
   border-radius: 15px;
   background-color: #cacaca;
   padding: .2rem .5rem;
-  margin-bottom: .2rem;
-
 }
 
 .nav-profile-dropdown-button {
@@ -202,6 +200,7 @@ nav {
   color: #cacaca;
   height: 1px;
   margin-left: -50%;
+  margin-top: 0;
 }
 
 .search-repository-form {
@@ -243,8 +242,16 @@ nav {
 
 .content-link {
   display: flex;
-  margin-right: 2rem;
-  padding-bottom: .75rem;
+  padding-right: 2rem;
+  padding-bottom: .76rem;
+}
+
+.content-link:hover {
+  border-bottom: 2px solid gray;
+}
+
+.content-link:target {
+  border-bottom: 2px solid #f1826b;
 }
 
 .content-link p {

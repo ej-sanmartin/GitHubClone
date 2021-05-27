@@ -10,6 +10,7 @@ import { GrEmoji } from 'react-icons/gr';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { IoCubeOutline } from 'react-icons/io5'
 import { RiArrowDropDownFill } from 'react-icons/ri';
+import moment from 'moment';
 import Footer from './components/Footer'
 
 import { useQuery, gql } from '@apollo/client';
@@ -112,26 +113,26 @@ function App() {
         <div className="content-section-links">
           <div className="content-section-links-row">
             <a href="#" className="content-link">
-              <IconContext.Provider value={{ color: '#cacaca' }}>
+              <IconContext.Provider value={{ color: '#aaa' }}>
                 <BiBookOpen size={20} />
               </IconContext.Provider>
               <p>Overview</p>
             </a>
             <a href="#" className="content-link">
-              <IconContext.Provider value={{ color: '#cacaca' }}>
+              <IconContext.Provider value={{ color: '#aaa' }}>
                 <FiBook size={20} />
               </IconContext.Provider>
               <p>Repositories</p>
               <p className="repo-count">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</p>
             </a>
             <a href="#" className="content-link">
-              <IconContext.Provider value={{ color: '#cacaca', className: 'bar-chart-icon' }}>
+              <IconContext.Provider value={{ color: '#aaa', className: 'bar-chart-icon' }}>
                 <BiBarChartSquare rotate={120} size={20} />
               </IconContext.Provider>
               <p>Projects</p>
             </a>
             <a href="#" className="content-link">
-              <IconContext.Provider value={{ color: '#cacaca' }}>
+              <IconContext.Provider value={{ color: '#a' }}>
                 <IoCubeOutline size={20} />
               </IconContext.Provider>
               <p>Packages</p>
@@ -183,7 +184,7 @@ function App() {
                   <p>{repo && repo.node && repo.node.forkCount}</p>
                 </div>
                 <div className="updated-info">
-                  <p>Updated on June 12th</p>
+                  <p>Updated on {moment(repo && repo.node &&repo.node.updatedAt).format('MMMM Do, YYYY')}</p>
                 </div>
               </div>
             </article>
