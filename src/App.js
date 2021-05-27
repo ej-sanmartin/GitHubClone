@@ -77,9 +77,17 @@ function App() {
               </IconContext.Provider>
             </div>
             <div className="nav-profile-icons nav-profile-dropdown-button">
-              <IconContext.Provider value={{ color: 'white' }}>
-                <CgProfile size={24} />
-              </IconContext.Provider>
+              {user != null ?
+                <img
+                  src={user.avatarUrl}
+                  alt={`${user.name}'s Profile Pic`}
+                  className="mini-profile-pic"
+                />
+              :
+                <IconContext.Provider value={{ color: 'white' }}>
+                  <CgProfile size={24} />
+                </IconContext.Provider>
+              }
               <IconContext.Provider value={{ color: 'white' }}>
                 <RiArrowDropDownFill className="nav-item-hover-effect" size={20} />
               </IconContext.Provider>
@@ -93,7 +101,7 @@ function App() {
             {user ?
               <img className="profile-image"
                    src={user.avatarUrl}
-                   alt={`${user.name}'s Profile Picture`}
+                   alt={`${user.name}'s Profile Pic`}
               />
             :
               <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>

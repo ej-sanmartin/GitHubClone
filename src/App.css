@@ -153,6 +153,12 @@ nav {
   border-radius: 50%;
 }
 
+.mini-profile-pic {
+  max-height: 24px;
+  max-width: 24px;
+  border-radius: 50%;
+}
+
 .happy-face {
   display: flex;
   justify-content: center;
