@@ -10,7 +10,7 @@ export let LOAD_USER = gql`
             avatarUrl(size: 250)
             bio
             name
-            repositories(last: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
+            repositories(last: 20, orderBy: {field: CREATED_AT, direction: ASC}) {
               edges {
                 node {
                   description
@@ -22,7 +22,6 @@ export let LOAD_USER = gql`
                     id
                     name
                   }
-                  projectsUrl
                   url
                   stargazerCount
                   updatedAt

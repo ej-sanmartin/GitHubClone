@@ -172,6 +172,7 @@ nav {
   font-size: 1rem;
   font-weight: 300;
   color: grey;
+  margin-top: .15rem;
 }
 
 .profile-card > p {
@@ -257,7 +258,7 @@ nav {
 
 .repo {
   border-bottom: 1px #ccc solid;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
   width: 70vw;
 }
 
@@ -279,6 +280,7 @@ nav {
 }
 
 .star-button {
+  margin-top: 1.5rem;
   display: flex;
   border: 1px solid gray;
   padding: .4rem .8rem;
@@ -308,9 +310,11 @@ nav {
 }
 
 .repo-description {
-  margin: .5rem 0;
-  margin-bottom: 1.8rem;
+  margin: .1rem 0;
+  margin-bottom: 1rem;
   overflow-wrap: break-word;
+  width: 70ch;
+  line-height: 1.25rem;
 }
 
 .repo-info {

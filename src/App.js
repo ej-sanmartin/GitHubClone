@@ -21,13 +21,21 @@ function App() {
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
-    if(!loading && data){
-      setUser(data.search.edges[0].node);
-      setRepositories(data.search.edges[0].node.repositories);
-    }
+    const getUser = async () => {
+      try {
+        if(!loading && data){
+          setUser(data.search.edges[0].node);
+          setRepositories(data.search.edges[0].node.repositories);
+        }
+    
+        if(loading) return `Loading...`;
+        if(error) return `Error: ${error.message}`
 
-    if(loading) return `Loading...`;
-    if(error) return `Error: ${error.message}`
+      } catch(e){
+        console.log(e);
+      }
+    }
+    getUser();
   }, [data]);
 
   return (
@@ -59,7 +67,6 @@ function App() {
                 <IoMdNotificationsOutline size={24} />
               </IconContext.Provider>  
             </div>
-            
             <div className="nav-profile-dropdown-button nav-item-hover-effect">
               <IconContext.Provider value={{ color: 'white' }}>
                 <GoPlusSmall size={24} />
@@ -142,12 +149,12 @@ function App() {
         <hr className="hr-line-under-form" />
         <p className="results-message"><span className="bold-style">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
         <hr className="hr-line-under-result-message" />
-        {repositories && repositories.edges  ? repositories.edges.map(({repo}) => {
+        {repositories && repositories.edges  ? repositories.edges.map((repo) => {
           console.log(repo);
-           return (
-            <article key={repo && repo.id} className="repo">
+          return (
+            <article key={repo && repo.node && repo.node.id} className="repo">
               <div className="repo-header">
-                <a href="#"><h2>{repo && repo.name}</h2></a>
+                <a href={repo && repo.node && repo.node.url} target="_blank" rel="noopener noreferrer"><h2>{repo && repo.node && repo.node.name}</h2></a>
                 <a className="star-button">
                   <IconContext.Provider value={{ color: 'gray' }}>
                     <FiStar size={16} />
@@ -155,22 +162,25 @@ function App() {
                   <p>Star</p>
                 </a>
               </div>
-              <p className="repo-description">{repo && repo.description}</p>
+              <p className="repo-description">{repo && repo.node && repo.node.description}</p>
               <div className="repo-info">
-                <div className="language-info">
-                  <p>{repo && repo.primaryLanguage.name}</p>
-                </div>
+                {repo && repo.node && repo.node.primaryLanguage ?
+                  <div className="language-info">
+                    <p>{repo.node.primaryLanguage.name}</p>
+                  </div>
+                :
+                  ``}
                 <div className="star-info">
                   <IconContext.Provider value={{ color: 'gray' }}>
                     <FiStar size={18} />
                   </IconContext.Provider>
-                  <p>{repo && repo.stargazerCount}</p>
+                  <p>{repo && repo.node && repo.node.stargazerCount}</p>
                 </div>
                 <div className="fork-info">
                   <IconContext.Provider value={{ color: 'gray' }}>
                     <BiGitRepoForked size={18} />
                   </IconContext.Provider>
-                  <p>{repo && repo.forkCount}</p>
+                  <p>{repo && repo.node && repo.node.forkCount}</p>
                 </div>
                 <div className="updated-info">
                   <p>Updated on June 12th</p>
