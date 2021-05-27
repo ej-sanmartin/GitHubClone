@@ -59,11 +59,17 @@ nav {
   border: grey solid 1px;
   padding: .2rem .75rem;
   color: #cacaca;
+  transition: 500ms;
 }
 
-.search-form-input:focus,
+.search-form-input:focus {
+  outline: none;
+  width: 22vw;
+}
+
 .search-repository-input:focus {
   outline: none;
+  width: 70vw;
 }
 
 .search-form-input input::placeholder {
@@ -199,6 +205,7 @@ nav {
 }
 
 .search-repository-form {
+  max-width: 70vw;
   padding-top: .2rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px #eee;
