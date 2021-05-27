@@ -188,7 +188,7 @@ nav {
 }
 
 .content-section {
-  color: grey;
+  color: #8b949e;
   margin-left: 2rem;
   grid-area: info;
   min-height: 100vh;
@@ -219,7 +219,7 @@ nav {
 }
 
 .results-message {
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.15rem;
   width: 20vw;
   color: var(--base-font-color);
   border-bottom: solid 1px #eee;
@@ -267,6 +267,7 @@ nav {
   border-bottom: 1px #ccc solid;
   padding-bottom: 1.5rem;
   width: 70vw;
+  color: #8b949e;
 }
 
 .repo-header {
@@ -275,6 +276,7 @@ nav {
 }
 
 .repo-header a {
+  color: #59a5f8;
   text-decoration: none;
 }
 
@@ -283,7 +285,7 @@ nav {
 }
 
 .repo-header a:visited {
-  color: blue;
+  color: #59a5f8;
 }
 
 .star-button {
@@ -308,6 +310,7 @@ nav {
 }
 
 .star-button p {
+  color: var(--base-font-color);
   margin: 0;
   margin-top: .1rem;
   margin-left: .25rem;
@@ -346,6 +349,56 @@ nav {
   display: flex;
 }
 
+.repo-info .language-info div {
+  margin-right: .15rem;
+}
+
+.language-circle {
+  margin-top: .18rem;
+  background-color: red;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+}
+
 .footer {
   grid-area: footer;
+}
+
+/* MEDIA QUERIES */
+/* For tablets and smaller screened laptops */
+@media only screen and (max-width: 1250px) {
+
+}
+
+/* For mobile phones, in portrait orientation */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* For mobile iphones <8, in landscape orientation */
+@media only screen
+and (min-device-width: 319px)
+and (max-device-width: 668px)
+and (orientation: landscape)
+and (-webkit-device-pixel-ratio: 2) {
+  
+}
+
+/* For mobile iphones >X, in landscape orientation */
+@media only screen
+and (min-device-width: 669px)
+and (max-device-width: 820px)
+and (orientation: landscape)
+and (-webkit-device-pixel-ratio: 3) {
+  
+}
+
+/* Samsung S5 and Moto G4 landscape oriented styles */
+@media only screen
+and (min-device-width: 360px)
+and (max-device-height: 640px)
+and (orientation: landscape)
+and (-webkit-device-pixel-ratio: 3) {
+
 }

@@ -165,6 +165,7 @@ function App() {
               <div className="repo-info">
                 {repo && repo.node && repo.node.primaryLanguage ?
                   <div className="language-info">
+                    <div className="language-circle" style={{ backgroundColor: `${repo.node.primaryLanguage.color}` }}></div>
                     <p>{repo.node.primaryLanguage.name}</p>
                   </div>
                 :
