@@ -149,7 +149,6 @@ function App() {
         </form>
         <hr className="hr-line-under-form" />
         <p className="results-message"><span className="bold-style">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
-        <hr className="hr-line-under-result-message" />
         {repositories && repositories.edges  ? repositories.edges.map((repo) => {
           return (
             <article key={repo && repo.node && repo.node.id} className="repo">

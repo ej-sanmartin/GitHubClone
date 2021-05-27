@@ -203,6 +203,7 @@ nav {
   margin-top: 0;
 }
 
+
 .search-repository-form {
   max-width: 70vw;
   padding-top: .2rem;
@@ -219,7 +220,7 @@ nav {
 
 .results-message {
   padding-bottom: 1.15rem;
-  width: 20vw;
+  width: 70vw;
   color: var(--base-font-color);
   border-bottom: solid 1px #eee;
   margin: 0;
@@ -273,6 +274,7 @@ nav {
 .repo {
   border-bottom: 1px #ccc solid;
   padding-bottom: 1.5rem;
+  padding-top: .5rem;
   width: 70vw;
   color: #8b949e;
 }
