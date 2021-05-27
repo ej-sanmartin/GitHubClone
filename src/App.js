@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { IconContext } from 'react-icons';
 import { BiBookOpen, BiBarChartSquare, BiGitRepoForked } from 'react-icons/bi';
@@ -12,7 +12,24 @@ import { IoCubeOutline } from 'react-icons/io5'
 import { RiArrowDropDownFill } from 'react-icons/ri';
 import Footer from './components/Footer'
 
+import { useQuery, gql } from '@apollo/client';
+import { LOAD_USER } from './GraphQL/Queries';
+
 function App() {
+  const { error, loading, data } = useQuery(LOAD_USER);
+  const [user, setUser] = useState([]);
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(() => {
+    if(!loading && data){
+      setUser(data.search.edges[0].node);
+      setRepositories(data.search.edges[0].node.repositories);
+    }
+
+    if(loading) return `Loading...`;
+    if(error) return `Error: ${error.message}`
+  }, [data]);
+
   return (
     <div className="layout">
       <nav className="header">
@@ -65,16 +82,23 @@ function App() {
       <section className="profile-section">
         <div className="profile-card">
           <div className="profile-image">
-            <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>
-              <CgProfile size={256} />
-            </IconContext.Provider>
+            {user ?
+              <img className="profile-image"
+                   src={user.avatarUrl}
+                   alt={`${user.name}'s Profile Picture`}
+              />
+            :
+              <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>
+                <CgProfile size={256} />
+              </IconContext.Provider>
+            }
             <div className="happy-face">
               <GrEmoji size={16} />
             </div>
           </div>
-          <h2>Name</h2>
+          <h2>{user ? user.name : `Unknown-User`}</h2>
           <h3>Username</h3>
-          <p>Bio</p>
+          <p>{user ? user.bio : ``}</p>
         </div>
       </section>
       <section className="content-section">
@@ -91,7 +115,7 @@ function App() {
                 <FiBook size={20} />
               </IconContext.Provider>
               <p>Repositories</p>
-              <p className="repo-count">160</p>
+              <p className="repo-count">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</p>
             </a>
             <a href="#" className="content-link">
               <IconContext.Provider value={{ color: '#cacaca', className: 'bar-chart-icon' }}>
@@ -116,40 +140,49 @@ function App() {
           />
         </form>
         <hr className="hr-line-under-form" />
-        <p className="results-message"><span className="bold-style">124</span> results for <span className="bold-style">public</span> repositories</p>
+        <p className="results-message"><span className="bold-style">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
         <hr className="hr-line-under-result-message" />
-        <article className="repo">
-          <div className="repo-header">
-            <a href="#"><h2>Repo-address</h2></a>
-            <a className="star-button">
-              <IconContext.Provider value={{ color: 'gray' }}>
-                <FiStar size={16} />
-              </IconContext.Provider>
-              <p>Star</p>
-            </a>
-          </div>
-          <p className="repo-description">Lorem-ipsum</p>
-          <div className="repo-info">
-            <div className="language-info">
-              <p>Language</p>
-            </div>
-            <div className="star-info">
-              <IconContext.Provider value={{ color: 'gray' }}>
-                <FiStar size={18} />
-              </IconContext.Provider>
-              <p>20</p>
-            </div>
-            <div className="fork-info">
-              <IconContext.Provider value={{ color: 'gray' }}>
-                <BiGitRepoForked size={18} />
-              </IconContext.Provider>
-              <p>4</p>
-            </div>
-            <div className="updated-info">
-              <p>Updated on June 12th</p>
-            </div>
-          </div>
-        </article>
+        {repositories && repositories.edges  ? repositories.edges.map(({repo}) => {
+          console.log(repo);
+           return (
+            <article key={repo && repo.id} className="repo">
+              <div className="repo-header">
+                <a href="#"><h2>{repo && repo.name}</h2></a>
+                <a className="star-button">
+                  <IconContext.Provider value={{ color: 'gray' }}>
+                    <FiStar size={16} />
+                  </IconContext.Provider>
+                  <p>Star</p>
+                </a>
+              </div>
+              <p className="repo-description">{repo && repo.description}</p>
+              <div className="repo-info">
+                <div className="language-info">
+                  <p>{repo && repo.primaryLanguage.name}</p>
+                </div>
+                <div className="star-info">
+                  <IconContext.Provider value={{ color: 'gray' }}>
+                    <FiStar size={18} />
+                  </IconContext.Provider>
+                  <p>{repo && repo.stargazerCount}</p>
+                </div>
+                <div className="fork-info">
+                  <IconContext.Provider value={{ color: 'gray' }}>
+                    <BiGitRepoForked size={18} />
+                  </IconContext.Provider>
+                  <p>{repo && repo.forkCount}</p>
+                </div>
+                <div className="updated-info">
+                  <p>Updated on June 12th</p>
+                </div>
+              </div>
+            </article>
+          );
+        })
+        :
+        `Loading...`
+        }
+
       </section>
       <Footer style="footer" />
     </div>

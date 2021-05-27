@@ -1,6 +1,6 @@
 .layout {
   display: grid;
-  row-gap: 2rem;
+  row-gap: 3rem;
   grid-template-areas:
   "header header header header"
   "profile info info info"
@@ -100,6 +100,7 @@ nav {
 
 .repo-count {
   font-weight: bold;
+  color: #777;
   border-radius: 15px;
   background-color: #cacaca;
   padding: .2rem .5rem;
@@ -144,7 +145,8 @@ nav {
 .profile-image {
   position: relative;
   z-index: 2;
-  margin-left: -1rem;
+  margin-bottom: .5rem;
+  border-radius: 50%;
 }
 
 .happy-face {
@@ -158,6 +160,7 @@ nav {
   padding: .42rem;
   bottom: 16%;
   right: 6%;
+  z-index: 3;
 }
 
 .profile-card > h2,
@@ -173,7 +176,7 @@ nav {
 
 .profile-card > p {
   margin-top: 1em;
-  font-weight: lighter;
+  font-weight: 300;
   overflow-wrap: break-word;
 }
 
