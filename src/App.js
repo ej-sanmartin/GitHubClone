@@ -143,7 +143,7 @@ function App() {
               <p>Projects</p>
             </a>
             <a href="#" className="content-link">
-              <IconContext.Provider value={{ color: '#a' }}>
+              <IconContext.Provider value={{ color: '#aaa' }}>
                 <IoCubeOutline size={20} />
               </IconContext.Provider>
               <p>Packages</p>
