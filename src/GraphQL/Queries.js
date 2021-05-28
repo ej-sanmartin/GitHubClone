@@ -35,11 +35,3 @@ query Search($user: String!){
     }
   }
 `;
-
-/*
-export function fetchLoadUser({user}){
-  return useQuery(LOAD_USER, {
-    variables: { user },
-  });
-}
-*/
