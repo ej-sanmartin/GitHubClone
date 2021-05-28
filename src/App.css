@@ -215,7 +215,6 @@ nav {
   margin-top: 0;
 }
 
-
 .search-repository-form {
   max-width: 70vw;
   padding-top: .2rem;
@@ -381,6 +380,36 @@ nav {
   height: 14px;
   width: 14px;
   border-radius: 50%;
+}
+
+.awaiting-section {
+  width: fit-content;
+}
+
+.welcoming-smile {
+  text-align: center;
+  display: block;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.awaiting-message {
+  font-size: 1.5rem;
+  color: var(--base-font-color);
+  opacity: .9;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.small-message {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .footer {

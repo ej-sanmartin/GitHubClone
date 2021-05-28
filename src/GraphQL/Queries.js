@@ -1,4 +1,4 @@
-import { useQuery, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const LOAD_USER = gql`
 query Search($user: String!){

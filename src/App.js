@@ -115,34 +115,34 @@ function App() {
               <GrEmoji size={16} />
             </div>
           </div>
-          <h2>{user && user.name ? user.name : `Unknown-User`}</h2>
-          <h3>{successfullySearchUser ? successfullySearchUser : `Unknown`}</h3>
+          <h2>{user && user.name ? user.name : ``}</h2>
+          <h3>{successfullySearchUser ? successfullySearchUser : ``}</h3>
           <p>{user ? user.bio : ``}</p>
         </div>
       </section>
       <section className="content-section">
         <div className="content-section-links">
           <div className="content-section-links-row">
-            <a href="#" className="content-link">
+            <a href="#repo" className="content-link">
               <IconContext.Provider value={{ color: '#aaa' }}>
                 <BiBookOpen size={20} />
               </IconContext.Provider>
               <p>Overview</p>
             </a>
-            <a href="#" className="content-link">
+            <a href="#repo" className="content-link">
               <IconContext.Provider value={{ color: '#aaa' }}>
                 <FiBook size={20} />
               </IconContext.Provider>
               <p>Repositories</p>
               <p className="repo-count">{repositories && repositories.totalCount ? repositories.totalCount : `0`}</p>
             </a>
-            <a href="#" className="content-link">
+            <a href="#repo" className="content-link">
               <IconContext.Provider value={{ color: '#aaa', className: 'bar-chart-icon' }}>
                 <BiBarChartSquare rotate={120} size={20} />
               </IconContext.Provider>
               <p>Projects</p>
             </a>
-            <a href="#" className="content-link">
+            <a href="#repo" className="content-link">
               <IconContext.Provider value={{ color: '#aaa' }}>
                 <IoCubeOutline size={20} />
               </IconContext.Provider>
@@ -159,7 +159,7 @@ function App() {
           />
         </form>
         <hr className="hr-line-under-form" />
-        <p className="results-message"><span className="bold-style">{repositories ? repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
+        <p className="results-message"><span className="bold-style">{repositories && repositories.totalCount ? repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
         {repositories && repositories.edges  ? repositories.edges.map((repo) => {
           return (
             <article key={repo && repo.node && repo.node.id} className="repo">
@@ -201,7 +201,13 @@ function App() {
           );
         })
         :
-        `Loading...`
+        <article className="awaiting-section">
+          <div className="welcoming-smile">
+            <GrEmoji size={60} />
+          </div>
+          <p className="awaiting-message">Submit your Github username to display your info in this space</p>
+          <small className="small-message">This site is NOT affiliated with Github</small>
+        </article>
         }
 
       </section>
