@@ -1,8 +1,8 @@
-import { gql } from '@apollo/client';
+import { useQuery, gql } from '@apollo/client';
 
-export let LOAD_USER = gql`
-{
-    search(type: USER, query: "ej-sanmartin", first: 1) {
+export const LOAD_USER = gql`
+query Search($user: String!){
+    search(type: USER, query: $user, first: 1) {
       edges {
         node {
           ... on User {
@@ -35,3 +35,11 @@ export let LOAD_USER = gql`
     }
   }
 `;
+
+/*
+export function fetchLoadUser({user}){
+  return useQuery(LOAD_USER, {
+    variables: { user },
+  });
+}
+*/

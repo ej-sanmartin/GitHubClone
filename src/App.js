@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { IconContext } from 'react-icons';
 import { BiBookOpen, BiBarChartSquare, BiGitRepoForked } from 'react-icons/bi';
@@ -12,32 +12,20 @@ import { IoCubeOutline } from 'react-icons/io5'
 import { RiArrowDropDownFill } from 'react-icons/ri';
 import moment from 'moment';
 import Footer from './components/Footer'
-
-import { useQuery, gql } from '@apollo/client';
+import  { Query } from 'react-apollo';
 import { LOAD_USER } from './GraphQL/Queries';
 
 function App() {
-  const { error, loading, data } = useQuery(LOAD_USER);
+  const [searchedUser, setSearchedUser] = useState("");
+  const [successfullySearchUser, setSuccessfullySearchedUser] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [user, setUser] = useState([]);
   const [repositories, setRepositories] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        if(!loading && data){
-          setUser(data.search.edges[0].node);
-          setRepositories(data.search.edges[0].node.repositories);
-        }
-    
-        if(loading) return `Loading...`;
-        if(error) return `Error: ${error.message}`
-
-      } catch(e){
-        console.log(e);
-      }
-    }
-    getUser();
-  }, [data]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+  };
 
   return (
     <div className="layout">
@@ -47,14 +35,28 @@ function App() {
             <IconContext.Provider value={{ color: 'white' }}>
               <FaGithub className="nav-item-hover-effect" size={42} />
             </IconContext.Provider>
-            <form className="search-form">
+            <form className="search-form" onSubmit={e => {handleSubmit(e)}}>
               <input
                   className="search-form-input"
                   type="text"
                   id="search"
                   name="search"
+                  onChange={e => setSearchedUser(e.target.value)}
                   placeholder="Search or jump to..."
               />
+                  <Query query={LOAD_USER} skip={!submitting} variables={{ user: searchedUser }}>
+                  {({loading, error, data}) => {
+                    if(loading) return null;
+                    if(error) throw error;
+                    if(data && !loading){
+                      setUser(data.search.edges[0].node);
+                      setRepositories(data.search.edges[0].node.repositories);
+                      setSuccessfullySearchedUser(searchedUser);
+                      setSubmitting(false);
+                    }
+                    return null;
+                    }}
+                  </Query>
             </form>
             <a href="https://github.com/pulls" target="_blank" rel="noopener noreferrer">Pull requests</a>
             <a href="https://github.com/issues" target="_blank" rel="noopener noreferrer">Issues</a>
@@ -77,7 +79,7 @@ function App() {
               </IconContext.Provider>
             </div>
             <div className="nav-profile-icons nav-profile-dropdown-button">
-              {user != null ?
+              {user && user.avatarUrl ?
                 <img
                   src={user.avatarUrl}
                   alt={`${user.name}'s Profile Pic`}
@@ -98,10 +100,11 @@ function App() {
       <section className="profile-section">
         <div className="profile-card">
           <div className="profile-image">
-            {user ?
+            {user && user.avatarUrl ?
               <img className="profile-image"
                    src={user.avatarUrl}
                    alt={`${user.name}'s Profile Pic`}
+                   className="profile-pic"
               />
             :
               <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>
@@ -112,8 +115,8 @@ function App() {
               <GrEmoji size={16} />
             </div>
           </div>
-          <h2>{user ? user.name : `Unknown-User`}</h2>
-          <h3>Username</h3>
+          <h2>{user && user.name ? user.name : `Unknown-User`}</h2>
+          <h3>{successfullySearchUser ? successfullySearchUser : `Unknown`}</h3>
           <p>{user ? user.bio : ``}</p>
         </div>
       </section>
@@ -131,7 +134,7 @@ function App() {
                 <FiBook size={20} />
               </IconContext.Provider>
               <p>Repositories</p>
-              <p className="repo-count">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</p>
+              <p className="repo-count">{repositories && repositories.totalCount ? repositories.totalCount : `0`}</p>
             </a>
             <a href="#" className="content-link">
               <IconContext.Provider value={{ color: '#aaa', className: 'bar-chart-icon' }}>
@@ -156,7 +159,7 @@ function App() {
           />
         </form>
         <hr className="hr-line-under-form" />
-        <p className="results-message"><span className="bold-style">{data ? data.search.edges[0].node.repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
+        <p className="results-message"><span className="bold-style">{repositories ? repositories.totalCount : `0`}</span> results for <span className="bold-style">public</span> repositories</p>
         {repositories && repositories.edges  ? repositories.edges.map((repo) => {
           return (
             <article key={repo && repo.node && repo.node.id} className="repo">

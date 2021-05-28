@@ -153,6 +153,12 @@ nav {
   border-radius: 50%;
 }
 
+.profile-pic {
+  max-height: 250px;
+  max-width: 250px;
+  border-radius: 50%;
+}
+
 .mini-profile-pic {
   max-height: 24px;
   max-width: 24px;
