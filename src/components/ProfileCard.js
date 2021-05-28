@@ -2,6 +2,7 @@ import React from 'react';
 import { IconContext } from 'react-icons';
 import { CgProfile } from 'react-icons/cg';
 import { GrEmoji } from 'react-icons/gr';
+import '../styles/ProfileCard.css';
 
 const ProfileCard = (props) => {
     return (

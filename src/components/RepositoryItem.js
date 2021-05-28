@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons';
 import { BiGitRepoForked } from 'react-icons/bi';
 import { FiStar } from 'react-icons/fi';
 import moment from 'moment';
+import '../styles/RepositoryItem.css';
 
 const RepositoryItem = (props) => {
     return (

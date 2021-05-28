@@ -1,5 +1,6 @@
 import React from 'react';
 import { GrEmoji } from 'react-icons/gr';
+import '../styles/AwaitingResponse.css';
 
 const AwaitingResponse = () => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
-import '../styles/footer.css';
+import '../styles/Footer.css';
 
 const Footer = ({ style }) => {
     // keeps copyright year current forever

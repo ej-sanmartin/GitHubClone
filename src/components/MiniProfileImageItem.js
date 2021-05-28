@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { CgProfile } from 'react-icons/cg';
+import '../styles/MiniProfileImageItem.css';
 
 const MiniProfileImageItem = (props) => {
     return (

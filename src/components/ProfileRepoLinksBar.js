@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons';
 import { BiBookOpen, BiBarChartSquare } from 'react-icons/bi';
 import { FiBook } from 'react-icons/fi';
 import { IoCubeOutline } from 'react-icons/io5'
+import '../styles/ProfileRepoLinksBar.css';
 
 const ProfileRepoLinksBar = (props) => {
     return (
