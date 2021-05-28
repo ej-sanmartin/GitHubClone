@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
 import { IconContext } from 'react-icons';
-import { CgProfile } from 'react-icons/cg';
 import { FaGithub } from 'react-icons/fa';
 import { GoPlusSmall } from 'react-icons/go';
-import { GrEmoji } from 'react-icons/gr';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { RiArrowDropDownFill } from 'react-icons/ri';
-import Footer from './components/Footer';
+import MiniProfileImageItem from './components/MiniProfileImageItem';
+import ProfileCard from './components/ProfileCard';
 import ProfileRepoLinksBar from './components/ProfileRepoLinksBar';
 import RepositoryItem from './components/RepositoryItem';
 import AwaitingResponse from './components/AwaitingResponse';
+import Footer from './components/Footer';
 import  { Query } from 'react-apollo';
 import { LOAD_USER } from './GraphQL/Queries';
 
 function App() {
   const [searchedUser, setSearchedUser] = useState("");
-  const [successfullySearchUser, setSuccessfullySearchedUser] = useState("");
+  const [successfullySearchedUser, setSuccessfullySearchedUser] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [user, setUser] = useState([]);
   const [repositories, setRepositories] = useState([]);
@@ -78,17 +78,7 @@ function App() {
               </IconContext.Provider>
             </div>
             <div className="nav-profile-icons nav-profile-dropdown-button">
-              {user && user.avatarUrl ?
-                <img
-                  src={user.avatarUrl}
-                  alt={`${user.name}'s Profile Pic`}
-                  className="mini-profile-pic"
-                />
-              :
-                <IconContext.Provider value={{ color: 'white' }}>
-                  <CgProfile size={24} />
-                </IconContext.Provider>
-              }
+              <MiniProfileImageItem  user={user} />
               <IconContext.Provider value={{ color: 'white' }}>
                 <RiArrowDropDownFill className="nav-item-hover-effect" size={20} />
               </IconContext.Provider>
@@ -97,27 +87,7 @@ function App() {
         </div>
       </nav>
       <section className="profile-section">
-        <div className="profile-card">
-          <div className="profile-image">
-            {user && user.avatarUrl ?
-              <img className="profile-image"
-                   src={user.avatarUrl}
-                   alt={`${user.name}'s Profile Pic`}
-                   className="profile-pic"
-              />
-            :
-              <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>
-                <CgProfile size={256} />
-              </IconContext.Provider>
-            }
-            <div className="happy-face">
-              <GrEmoji size={16} />
-            </div>
-          </div>
-          <h2>{user && user.name ? user.name : ``}</h2>
-          <h3>{successfullySearchUser ? successfullySearchUser : ``}</h3>
-          <p>{user ? user.bio : ``}</p>
-        </div>
+        <ProfileCard username={successfullySearchedUser} user={user} />
       </section>
       <section className="content-section">
         <div className="content-section-links">
