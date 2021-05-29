@@ -26,6 +26,53 @@ nav {
   justify-content: space-between;
 }
 
+.menu-btn {
+  position: relative;
+  margin-top: .45rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.menu-btn-lines,
+.menu-btn-lines::before,
+.menu-btn-lines::after {
+  width: 1.5rem;
+  height: 0.1rem;
+  background-color: white;
+  transition: all 500ms ease-in-out;
+}
+
+.menu-btn-lines::before,
+.menu-btn-lines::after {
+  content: "";
+  position: absolute;
+}
+
+.menu-btn-lines::before {
+  transform: translateY(-.5rem);
+}
+
+.menu-btn-lines::after {
+  transform: translateY(.5rem);
+}
+
+.menu-btn.open .menu-btn-lines {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.menu-btn.open .menu-btn-lines::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.menu-btn.open .menu-btn-lines::after {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .nav-content {
   display: flex;
 }
@@ -376,7 +423,7 @@ nav {
 
 .language-circle {
   margin-top: .18rem;
-  background-color: red;
+  background-color: transparent;
   height: 14px;
   width: 14px;
   border-radius: 50%;
@@ -424,7 +471,73 @@ nav {
 
 /* For mobile phones, in portrait orientation */
 @media only screen and (max-width: 600px) {
+  .layout {
+    display: grid;
+    row-gap: .5rem;
+    grid-template-areas:
+    "header"
+    "profile"
+    "info"
+    "footer";
+  }
+  
+  .header {
+    padding: 1.25rem;
+  }
 
+  .container {
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-content {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .nav-content > a, .search-form {
+    margin: 0;
+    padding: .6rem 0;
+    border-bottom: #666 solid 1px;
+    width: 80vw;
+  }
+
+  .search-form {
+    width: 80vw;
+    padding: .8rem 0;
+  }
+
+  .search-form::after {
+    display: none;
+  }
+
+  .search-form-input {
+    margin: 0;
+    height: 1.5rem;
+    width: 80vw;
+  }
+
+  .nav-content.open {
+    display: inline-flex;
+  }
+
+  .search-form-input:focus {
+    outline: none;
+    width: 80vw;
+  }
+  
+  .search-repository-input:focus {
+    outline: none;
+    width: inherit;
+  }
+
+  .nav-profile {
+    display: none;
+  }
 }
 
 /* For mobile iphones <8, in landscape orientation */

@@ -9,10 +9,9 @@ const ProfileCard = (props) => {
         <div className="profile-card">
             <div className="profile-image">
             {props && props.user && props.user.avatarUrl ?
-                <img className="profile-image"
+                <img className="profile-image profile-pic"
                     src={props.user.avatarUrl}
                     alt={`${props.user.name}'s Profile Pic`}
-                    className="profile-pic"
                 />
             :
                 <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>

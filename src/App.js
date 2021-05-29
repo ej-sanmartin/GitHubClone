@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './App.css';
 import { IconContext } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
@@ -20,48 +20,80 @@ function App() {
   const [submitting, setSubmitting] = useState(false);
   const [user, setUser] = useState([]);
   const [repositories, setRepositories] = useState([]);
+  const navContentDiv = useRef();
+  const menuBtnDiv = useRef(); // to be used for responsive hamburger menu for navbar
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
   };
 
+  useEffect(() => {
+    const menuBtn = menuBtnDiv.current.querySelector('.menu-btn');
+    const navContent = navContentDiv.current.querySelector('.nav-content');
+    const menuItems = navContentDiv.current.querySelectorAll('.menu-item');
+
+    function toggle(){
+      menuBtn.classList.toggle('open');
+      navContent.classList.toggle('open');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      toggle();
+    });
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if(menuBtn.classList.contains('open')){
+          toggle();
+        }
+      });
+    });
+  }, [menuBtnDiv]);
+
   return (
     <div className="layout">
       <nav className="header">
         <div className="container">
-          <div className="nav-content">
-            <IconContext.Provider value={{ color: 'white' }}>
-              <FaGithub className="nav-item-hover-effect" size={42} />
-            </IconContext.Provider>
-            <form className="search-form" onSubmit={e => {handleSubmit(e)}}>
-              <input
-                  className="search-form-input"
-                  type="text"
-                  id="search"
-                  name="search"
-                  onChange={e => setSearchedUser(e.target.value)}
-                  placeholder="Search or jump to..."
-              />
-                  <Query query={LOAD_USER} skip={!submitting} variables={{ user: searchedUser }}>
-                  {({loading, error, data}) => {
-                    if(loading) return null;
-                    if(error) throw error;
-                    if(data && !loading){
-                      setUser(data.search.edges[0].node);
-                      setRepositories(data.search.edges[0].node.repositories);
-                      setSuccessfullySearchedUser(searchedUser);
-                      setSubmitting(false);
-                    }
-                    return null;
-                    }}
-                  </Query>
-            </form>
-            <a href="https://github.com/pulls" target="_blank" rel="noopener noreferrer">Pull requests</a>
-            <a href="https://github.com/issues" target="_blank" rel="noopener noreferrer">Issues</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">Codespaces</a>
-            <a href="https://github.com/marketplace" target="_blank" rel="noopener noreferrer">Marketplace</a>
-            <a href="https://github.com/explore" target="_blank" rel="noopener noreferrer">Explore</a>
+          <div ref={navContentDiv}>
+            <div className="nav-content">
+              <IconContext.Provider value={{ color: 'white' }}>
+                <FaGithub className="nav-item-hover-effect" size={42} />
+              </IconContext.Provider>
+              <form className="search-form" onSubmit={e => {handleSubmit(e)}}>
+                <input
+                    className="search-form-input"
+                    type="text"
+                    id="search"
+                    name="search"
+                    onChange={e => setSearchedUser(e.target.value)}
+                    placeholder="Search"
+                />
+                    <Query query={LOAD_USER} skip={!submitting} variables={{ user: searchedUser }}>
+                    {({loading, error, data}) => {
+                      if(loading) return null;
+                      if(error) throw error;
+                      if(data && !loading){
+                        setUser(data.search.edges[0].node);
+                        setRepositories(data.search.edges[0].node.repositories);
+                        setSuccessfullySearchedUser(searchedUser);
+                        setSubmitting(false);
+                      }
+                      return null;
+                      }}
+                    </Query>
+              </form>
+              <a className="menu-item" href="https://github.com/pulls" target="_blank" rel="noopener noreferrer">Pull requests</a>
+              <a className="menu-item" href="https://github.com/issues" target="_blank" rel="noopener noreferrer">Issues</a>
+              <a className="menu-item" href="https://github.com" target="_blank" rel="noopener noreferrer">Codespaces</a>
+              <a className="menu-item" href="https://github.com/marketplace" target="_blank" rel="noopener noreferrer">Marketplace</a>
+              <a className="menu-item" href="https://github.com/explore" target="_blank" rel="noopener noreferrer">Explore</a>
+            </div>
+          </div>
+          <div ref={menuBtnDiv}>
+            <div className="menu-btn">
+              <div className="menu-btn-lines"></div>
+            </div>
           </div>
           <div className="nav-profile">
             <div className="notification nav-profile-dropdown-button nav-item-hover-effect">
