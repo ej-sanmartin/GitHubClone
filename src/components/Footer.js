@@ -18,7 +18,7 @@ const Footer = ({ style }) => {
             <a href="https://docs.github.com/" target="_blank" rel="noopener noreferrer">Docs</a>
             <div></div>
             <a href="https://github.com/">
-            <IconContext.Provider href="https://github.com/" value={{ color: 'gray' }}>
+            <IconContext.Provider href="https://github.com/" value={{ color: 'gray', className: "github-logo-footer" }}>
                 <FaGithub className="nav-item-hover-effect" size={28} />
             </IconContext.Provider>
             </a>
