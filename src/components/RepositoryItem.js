@@ -9,10 +9,10 @@ const RepositoryItem = (props) => {
     return (
         <article key={props && props.repo && props.repo.node && props.repo.node.id} className="repo">
             <div className="repo-header">
-                <a href={props && props.repo && props.repo.node && props.repo.node.url} target="_blank" rel="noopener noreferrer"><h2>{props && props.repo && props.repo.node && props.repo.node.name}</h2></a>
+                <a href={props && props.repo && props.repo.node && props.repo.node.url} target="_blank" rel="noopener noreferrer"><h2 className="repo-title">{props && props.repo && props.repo.node && props.repo.node.name}</h2></a>
                 <a className="star-button">
-                    <IconContext.Provider value={{ color: 'gray' }}>
-                    <FiStar size={16} />
+                    <IconContext.Provider value={{ color: 'gray', className: 'star-button-targe-icon' }}>
+                        <FiStar size={16} />
                     </IconContext.Provider>
                     <p>Star</p>
                 </a>

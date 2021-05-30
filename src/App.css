@@ -226,22 +226,35 @@ nav {
   z-index: 3;
 }
 
-.profile-card > h2,
-.profile-card > h3 {
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info > h2,
+.profile-info > h3 {
   margin: 0;
 }
 
-.profile-card > h3 {
+.profile-info > h3 {
   font-size: 1rem;
   font-weight: 300;
   color: grey;
   margin-top: .15rem;
 }
 
-.profile-card > p {
+.profile-info > p {
   margin-top: 1em;
   font-weight: 300;
   overflow-wrap: break-word;
+}
+
+.responsive-bio {
+  display: none;
+}
+
+.edit-profile-button {
+  display: none;
 }
 
 .content-section {
@@ -332,6 +345,8 @@ nav {
 
 .repo {
   border-bottom: 1px #ccc solid;
+  padding-left: 0;
+  padding-right: 2rem;
   padding-bottom: 1.5rem;
   padding-top: .5rem;
   width: 70vw;
@@ -530,12 +545,137 @@ nav {
     width: 80vw;
   }
   
-  .search-repository-input:focus {
+  .search-form-input:focus {
     outline: none;
-    width: inherit;
   }
 
   .nav-profile {
+    display: none;
+  }
+
+  .profile-section {
+    min-height: fit-content;
+  }
+
+  .profile-card {
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 90vw;
+    margin: .75rem 1rem;
+  }
+
+  .profile-info {
+    flex-basis: 72%;
+    margin-left: 1rem;
+  }
+
+  .profile-info > h2 {
+    font-size: 1.75rem;
+  }
+
+  .profile-info > h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-info > p {
+    display: none;
+  }
+
+  .profile-image {
+    flex-basis: 75px;
+    width: 20vw;
+  }
+
+  .responsive-bio {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  .edit-profile-button {
+    display: block;
+    background-color: white;
+    border: 1px solid grey;
+    margin: 1rem 0;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 5px;
+    padding: .5rem 0;
+    color: var(--base-font-color);
+    opacity: .9;
+  }
+
+  .edit-profile-button:focus {
+    outline: none;
+    opacity: .6;
+  }
+
+  .happy-face {
+    display: none;
+  }
+
+  .content-section {
+    margin-left: 0;
+  }
+
+  .content-section-links-row {
+    padding-left: 1rem;
+    width: 100vw;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
+
+  .search-repository-form {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-repository-input:focus {
+    min-width: 100%;
+  }
+
+  .results-message {
+    padding-left: 1rem;
+  }
+
+  .repo {
+    min-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
+
+  .repo-header {
+    margin-bottom: -.2rem;
+    justify-content: flex-start;
+  }
+
+  .repo-title {
+    font-size: 1.3rem;
+    width: 24ch;
+    word-wrap: break-word;
+  }
+
+  .star-button {
+    margin-top: 1rem;
+    margin-left: 2rem;
+  }
+
+  .star-button-target-icon {
+    display: inline-block;
+  }
+
+  .repo-description {
+    display: inline-block;
+    width: 30ch;
+  }
+
+  .star-info {
+    display: none;
+  }
+
+  .fork-info {
     display: none;
   }
 }

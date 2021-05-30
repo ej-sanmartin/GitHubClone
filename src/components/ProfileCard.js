@@ -22,9 +22,17 @@ const ProfileCard = (props) => {
                 <GrEmoji size={16} />
             </div>
             </div>
-            <h2>{props && props.user && props.user.name ? props.user.name : ``}</h2>
-            <h3>{props && props.username ? props.username : ``}</h3>
-            <p>{props && props.user ? props.user.bio : ``}</p>
+            <div className="profile-info">
+                <h2>{props && props.user && props.user.name ? props.user.name : ``}</h2>
+                <h3>{props && props.username ? props.username : ``}</h3>
+                <p>{props && props.user ? props.user.bio : ``}</p> 
+            </div>
+            <div className="responsive-bio">{props && props.user ? props.user.bio : ``}</div>
+            {props && props.user && props.user.avatarUrl ? 
+                <button className="edit-profile-button">Edit profile</button>
+            :
+                ''
+            }
         </div>
     );
 }
