@@ -24,6 +24,16 @@ nav {
   max-width: 1600px;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.responsive-nav-header {
+  width: 100%;
+  flex-basis: 100%;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .menu-btn {
@@ -81,6 +91,10 @@ nav {
 .search-repository-form {
   margin-top: .35rem;
   position: relative;
+}
+
+.search-form {
+  margin-top: .6rem;
 }
 
 .search-form::after {
@@ -159,6 +173,7 @@ nav {
   padding: .2rem .5rem;
 }
 
+/* just in case you want to add dropdown stylings */
 .nav-profile-dropdown-button {
 
 }
@@ -500,6 +515,18 @@ nav {
     padding: 1.25rem;
   }
 
+  .github-logo-header {
+    display: none;
+  }
+
+  .responsive-nav-header {
+    display: flex;
+  }
+
+  .notification::after {
+    display: none;
+  }
+
   .container {
     width: 100%;
   }
@@ -617,6 +644,17 @@ nav {
 
   .content-section {
     margin-left: 0;
+    min-height: fit-content;
+  }
+
+  .awaiting-section {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .awaiting-message {
+    text-align: center;
   }
 
   .content-section-links-row {

@@ -22,11 +22,25 @@ function App() {
   const [repositories, setRepositories] = useState([]);
   const navContentDiv = useRef();
   const menuBtnDiv = useRef(); // to be used for responsive hamburger menu for navbar
+  const [width, setWidth] = useState(window.innerWidth); // check if on mobile device
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
   };
+
+  function handleWindowSizeChange(){
+    setWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+  let isMobile = !(width <= 768);
 
   useEffect(() => {
     const menuBtn = menuBtnDiv.current.querySelector('.menu-btn');
@@ -55,9 +69,22 @@ function App() {
     <div className="layout">
       <nav className="header">
         <div className="container">
+          <div className="responsive-nav-header" ref={menuBtnDiv}>
+            <div className="menu-btn">
+              <div className="menu-btn-lines"></div>
+            </div>
+            <IconContext.Provider value={{ color: 'white' }}>
+                <FaGithub className="nav-item-hover-effect" size={32} />
+              </IconContext.Provider>
+            <div className="notification nav-profile-dropdown-button nav-item-hover-effect">
+              <IconContext.Provider value={{ color: 'white' }}>
+                <IoMdNotificationsOutline size={24} />
+              </IconContext.Provider>  
+            </div>
+          </div>
           <div ref={navContentDiv}>
             <div className="nav-content">
-              <IconContext.Provider value={{ color: 'white' }}>
+              <IconContext.Provider value={{ color: 'white', className: 'github-logo-header' }}>
                 <FaGithub className="nav-item-hover-effect" size={42} />
               </IconContext.Provider>
               <form className="search-form" onSubmit={e => {handleSubmit(e)}}>
@@ -90,11 +117,6 @@ function App() {
               <a className="menu-item" href="https://github.com/explore" target="_blank" rel="noopener noreferrer">Explore</a>
             </div>
           </div>
-          <div ref={menuBtnDiv}>
-            <div className="menu-btn">
-              <div className="menu-btn-lines"></div>
-            </div>
-          </div>
           <div className="nav-profile">
             <div className="notification nav-profile-dropdown-button nav-item-hover-effect">
               <IconContext.Provider value={{ color: 'white' }}>
@@ -118,9 +140,13 @@ function App() {
           </div>
         </div>
       </nav>
-      <section className="profile-section">
-        <ProfileCard username={successfullySearchedUser} user={user} />
-      </section>
+      {isMobile && user ? 
+        <section className="profile-section">
+          <ProfileCard username={successfullySearchedUser} user={user} />
+        </section>
+      :
+        ''
+      }
       <section className="content-section">
         <div className="content-section-links">
           <ProfileRepoLinksBar repo={repositories}/>
