@@ -22,25 +22,11 @@ function App() {
   const [repositories, setRepositories] = useState([]);
   const navContentDiv = useRef();
   const menuBtnDiv = useRef(); // to be used for responsive hamburger menu for navbar
-  const [width, setWidth] = useState(window.innerWidth); // check if on mobile device
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
   };
-
-  function handleWindowSizeChange(){
-    setWidth(window.innerWidth);
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    }
-  }, []);
-
-  let isMobile = !(width <= 768);
 
   useEffect(() => {
     const menuBtn = menuBtnDiv.current.querySelector('.menu-btn');
@@ -73,14 +59,12 @@ function App() {
             <div className="menu-btn">
               <div className="menu-btn-lines"></div>
             </div>
-            <IconContext.Provider value={{ color: 'white' }}>
-                <FaGithub className="nav-item-hover-effect" size={32} />
+            <IconContext.Provider value={{ color: 'white', className: 'nav-item-hover-effect' }}>
+                <FaGithub size={32} />
               </IconContext.Provider>
-            <div className="notification nav-profile-dropdown-button nav-item-hover-effect">
-              <IconContext.Provider value={{ color: 'white' }}>
-                <IoMdNotificationsOutline size={24} />
-              </IconContext.Provider>  
-            </div>
+            <IconContext.Provider value={{ color: 'white', className: 'notification nav-profile-dropdown-button nav-item-hover-effect' }}>
+              <IoMdNotificationsOutline size={24} />
+            </IconContext.Provider>  
           </div>
           <div ref={navContentDiv}>
             <div className="nav-content">
@@ -139,14 +123,10 @@ function App() {
             </div>
           </div>
         </div>
-      </nav>
-      {isMobile && user ? 
-        <section className="profile-section">
-          <ProfileCard username={successfullySearchedUser} user={user} />
-        </section>
-      :
-        ''
-      }
+      </nav> 
+      <section className="profile-section">
+        <ProfileCard username={successfullySearchedUser} user={user} />
+      </section>
       <section className="content-section">
         <div className="content-section-links">
           <ProfileRepoLinksBar repo={repositories}/>

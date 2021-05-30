@@ -14,7 +14,7 @@ const ProfileCard = (props) => {
                     alt={`${props.user.name}'s Profile Pic`}
                 />
             :
-                <IconContext.Provider className="profile-image" value={{ color: '#cacaca' }}>
+                <IconContext.Provider value={{ color: '#cacaca', className: 'empty-profile-image' }}>
                 <CgProfile size={256} />
                 </IconContext.Provider>
             }
