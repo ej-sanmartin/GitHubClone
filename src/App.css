@@ -559,7 +559,7 @@ nav {
 
   .search-form-input {
     margin: 0;
-    height: 1.5rem;
+    height: 1.75rem;
     width: 86vw;
   }
 
@@ -728,7 +728,226 @@ and (min-device-width: 319px)
 and (max-device-width: 668px)
 and (orientation: landscape)
 and (-webkit-device-pixel-ratio: 2) {
+  .layout {
+    display: grid;
+    row-gap: .5rem;
+    grid-template-areas:
+    "header"
+    "profile"
+    "info"
+    "footer";
+  }
   
+  .header {
+    padding: 1.25rem;
+  }
+
+  .github-logo-header {
+    display: none;
+  }
+
+  .responsive-nav-header {
+    display: flex;
+  }
+
+  .notification::after {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-content {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .nav-content > a, .search-form {
+    margin: 0;
+    padding: .6rem 0;
+    border-bottom: #666 solid 1px;
+    width: 94vw;
+  }
+
+  .search-form {
+    width: 94vw;
+    padding: .8rem 0;
+  }
+
+  .search-form::after {
+    display: none;
+  }
+
+  .search-form-input {
+    margin: 0;
+    height: 1.75rem;
+    width: 93vw;
+  }
+
+  .nav-content.open {
+    display: inline-flex;
+  }
+
+  .search-form-input:focus {
+    outline: none;
+    width: 93vw;
+  }
+  
+  .search-form-input:focus {
+    outline: none;
+  }
+
+  .nav-profile {
+    display: none;
+  }
+
+  .profile-section {
+    min-height: fit-content;
+  }
+
+  .profile-card {
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 90vw;
+    margin: .75rem 1rem;
+  }
+
+  .profile-info {
+    flex-basis: 72%;
+    margin-left: 1rem;
+  }
+
+  .profile-info > h2 {
+    font-size: 1.75rem;
+  }
+
+  .profile-info > h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-info > p {
+    display: none;
+  }
+
+  .empty-profile-image {
+    display: none;
+  }
+
+  .profile-image {
+    flex-basis: 75px;
+    width: 20vw;
+  }
+
+  .responsive-bio {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  .edit-profile-button {
+    display: block;
+    background-color: white;
+    border: 1px solid grey;
+    margin: 1rem auto;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    color: var(--base-font-color);
+    opacity: .9;
+  }
+
+  .edit-profile-button:focus {
+    outline: none;
+    opacity: .6;
+  }
+
+  .happy-face {
+    display: none;
+  }
+
+  .content-section {
+    margin-left: 0;
+    min-height: fit-content;
+  }
+
+  .awaiting-section {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .awaiting-message {
+    text-align: center;
+  }
+
+  .content-section-links-row {
+    padding-left: 1rem;
+    width: 100vw;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
+
+  .search-repository-form {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-repository-input:focus {
+    min-width: 100%;
+  }
+
+  .results-message {
+    padding-left: 1rem;
+  }
+
+  .repo {
+    min-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
+
+  .repo-header {
+    margin-bottom: -.2rem;
+    justify-content: space-between;
+  }
+
+  .repo-title {
+    font-size: 1.3rem;
+    width: 30ch;
+    word-wrap: break-word;
+  }
+
+  .star-button {
+    margin-top: 1rem;
+  }
+
+  .star-button-target-icon {
+    display: inline-block;
+  }
+
+  .repo-description {
+    display: inline-block;
+    width: 50ch;
+  }
+
+  .star-info {
+    display: none;
+  }
+
+  .fork-info {
+    display: none;
+  }
 }
 
 /* For mobile iphones >X, in landscape orientation */
@@ -737,7 +956,224 @@ and (min-device-width: 669px)
 and (max-device-width: 820px)
 and (orientation: landscape)
 and (-webkit-device-pixel-ratio: 3) {
+  .layout {
+    display: grid;
+    row-gap: .5rem;
+    grid-template-areas:
+    "header"
+    "profile"
+    "info"
+    "footer";
+  }
   
+  .header {
+    padding: 1.25rem;
+  }
+
+  .github-logo-header {
+    display: none;
+  }
+
+  .responsive-nav-header {
+    display: flex;
+  }
+
+  .notification::after {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-content {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .nav-content > a, .search-form {
+    margin: 0;
+    padding: .6rem 0;
+    border-bottom: #666 solid 1px;
+    width: 94vw;
+  }
+
+  .search-form {
+    width: 94vw;
+    padding: .8rem 0;
+  }
+
+  .search-form::after {
+    display: none;
+  }
+
+  .search-form-input {
+    margin: 0;
+    height: 1.75rem;
+    width: 93vw;
+  }
+
+  .nav-content.open {
+    display: inline-flex;
+  }
+
+  .search-form-input:focus {
+    outline: none;
+    width: 93vw;
+  }
+  
+  .search-form-input:focus {
+    outline: none;
+  }
+
+  .nav-profile {
+    display: none;
+  }
+
+  .profile-section {
+    min-height: fit-content;
+  }
+
+  .profile-card {
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 90vw;
+    margin: .75rem 1rem;
+  }
+
+  .profile-info {
+    flex-basis: 72%;
+    margin-left: 1rem;
+  }
+
+  .profile-info > h2 {
+    font-size: 1.75rem;
+  }
+
+  .profile-info > h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-info > p {
+    display: none;
+  }
+
+  .empty-profile-image {
+    display: none;
+  }
+
+  .profile-image {
+    flex-basis: 75px;
+    width: 20vw;
+  }
+
+  .responsive-bio {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  .edit-profile-button {
+    display: block;
+    background-color: white;
+    border: 1px solid grey;
+    margin: 1rem auto;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    color: var(--base-font-color);
+    opacity: .9;
+  }
+
+  .edit-profile-button:focus {
+    outline: none;
+    opacity: .6;
+  }
+
+  .happy-face {
+    display: none;
+  }
+
+  .content-section {
+    margin-left: 0;
+    min-height: fit-content;
+  }
+
+  .awaiting-section {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .awaiting-message {
+    text-align: center;
+  }
+
+  .content-section-links-row {
+    padding-left: 1rem;
+    width: 100vw;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
+
+  .search-repository-form {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-repository-input:focus {
+    min-width: 100%;
+  }
+
+  .results-message {
+    padding-left: 1rem;
+  }
+
+  .repo {
+    min-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
+
+  .repo-header {
+    margin-bottom: -.2rem;
+    justify-content: space-between;
+  }
+
+  .repo-title {
+    font-size: 1.3rem;
+    width: 30ch;
+    word-wrap: break-word;
+  }
+
+  .star-button {
+    margin-top: 1rem;
+  }
+
+  .star-button-target-icon {
+    display: inline-block;
+  }
+
+  .repo-description {
+    display: inline-block;
+    width: 50ch;
+  }
+
+  .star-info {
+    display: none;
+  }
+
+  .fork-info {
+    display: none;
+  } 
 }
 
 /* Samsung S5 and Moto G4 landscape oriented styles */
@@ -746,5 +1182,224 @@ and (min-device-width: 360px)
 and (max-device-height: 640px)
 and (orientation: landscape)
 and (-webkit-device-pixel-ratio: 3) {
+  .layout {
+    display: grid;
+    row-gap: .5rem;
+    grid-template-areas:
+    "header"
+    "profile"
+    "info"
+    "footer";
+  }
+  
+  .header {
+    padding: 1.25rem;
+  }
 
+  .github-logo-header {
+    display: none;
+  }
+
+  .responsive-nav-header {
+    display: flex;
+  }
+
+  .notification::after {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-content {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .nav-content > a, .search-form {
+    margin: 0;
+    padding: .6rem 0;
+    border-bottom: #666 solid 1px;
+    width: 94vw;
+  }
+
+  .search-form {
+    width: 94vw;
+    padding: .8rem 0;
+  }
+
+  .search-form::after {
+    display: none;
+  }
+
+  .search-form-input {
+    margin: 0;
+    height: 1.75rem;
+    width: 93vw;
+  }
+
+  .nav-content.open {
+    display: inline-flex;
+  }
+
+  .search-form-input:focus {
+    outline: none;
+    width: 93vw;
+  }
+  
+  .search-form-input:focus {
+    outline: none;
+  }
+
+  .nav-profile {
+    display: none;
+  }
+
+  .profile-section {
+    min-height: fit-content;
+  }
+
+  .profile-card {
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 90vw;
+    margin: .75rem 1rem;
+  }
+
+  .profile-info {
+    flex-basis: 72%;
+    margin-left: 1rem;
+  }
+
+  .profile-info > h2 {
+    font-size: 1.75rem;
+  }
+
+  .profile-info > h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-info > p {
+    display: none;
+  }
+
+  .empty-profile-image {
+    display: none;
+  }
+
+  .profile-image {
+    flex-basis: 75px;
+    width: 20vw;
+  }
+
+  .responsive-bio {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  .edit-profile-button {
+    display: block;
+    background-color: white;
+    border: 1px solid grey;
+    margin: 1rem auto;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    color: var(--base-font-color);
+    opacity: .9;
+  }
+
+  .edit-profile-button:focus {
+    outline: none;
+    opacity: .6;
+  }
+
+  .happy-face {
+    display: none;
+  }
+
+  .content-section {
+    margin-left: 0;
+    min-height: fit-content;
+  }
+
+  .awaiting-section {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .awaiting-message {
+    text-align: center;
+  }
+
+  .content-section-links-row {
+    padding-left: 1rem;
+    width: 100vw;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
+
+  .search-repository-form {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-repository-input:focus {
+    min-width: 100%;
+  }
+
+  .results-message {
+    padding-left: 1rem;
+  }
+
+  .repo {
+    min-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
+
+  .repo-header {
+    margin-bottom: -.2rem;
+    justify-content: space-between;
+  }
+
+  .repo-title {
+    font-size: 1.3rem;
+    width: 30ch;
+    word-wrap: break-word;
+  }
+
+  .star-button {
+    margin-top: 1rem;
+  }
+
+  .star-button-target-icon {
+    display: inline-block;
+  }
+
+  .repo-description {
+    display: inline-block;
+    width: 50ch;
+  }
+
+  .star-info {
+    display: none;
+  }
+
+  .fork-info {
+    display: none;
+  }
 }

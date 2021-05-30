@@ -71,7 +71,35 @@ and (min-device-width: 319px)
 and (max-device-width: 668px)
 and (orientation: landscape)
 and (-webkit-device-pixel-ratio: 2) {
-  
+  footer {
+    flex-wrap: wrap;
+    max-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 4rem .5rem;
+    padding-bottom: 4rem;
+    border-top: none;
+  }
+
+  footer::before {
+    content: '.';
+    display: block;
+    height: 1px;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+    text-indent: -9999px;
+    border-top: 1px solid #ccc;
+  }
+
+  footer a {
+    padding: .5rem .5rem;
+  }
+
+  .github-logo-footer {
+    display: none;
+  }
 }
 
 /* For mobile iphones >X, in landscape orientation */
@@ -80,7 +108,35 @@ and (min-device-width: 669px)
 and (max-device-width: 820px)
 and (orientation: landscape)
 and (-webkit-device-pixel-ratio: 3) {
-  
+  footer {
+    flex-wrap: wrap;
+    max-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 4rem .5rem;
+    padding-bottom: 4rem;
+    border-top: none;
+  }
+
+  footer::before {
+    content: '.';
+    display: block;
+    height: 1px;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+    text-indent: -9999px;
+    border-top: 1px solid #ccc;
+  }
+
+  footer a {
+    padding: .5rem .5rem;
+  }
+
+  .github-logo-footer {
+    display: none;
+  }
 }
 
 /* Samsung S5 and Moto G4 landscape oriented styles */
@@ -89,5 +145,33 @@ and (min-device-width: 360px)
 and (max-device-height: 640px)
 and (orientation: landscape)
 and (-webkit-device-pixel-ratio: 3) {
+  footer {
+    flex-wrap: wrap;
+    max-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 4rem .5rem;
+    padding-bottom: 4rem;
+    border-top: none;
+  }
 
+  footer::before {
+    content: '.';
+    display: block;
+    height: 1px;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+    text-indent: -9999px;
+    border-top: 1px solid #ccc;
+  }
+
+  footer a {
+    padding: .5rem .5rem;
+  }
+
+  .github-logo-footer {
+    display: none;
+  }
 }
