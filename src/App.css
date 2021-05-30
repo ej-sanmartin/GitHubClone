@@ -545,11 +545,11 @@ nav {
     margin: 0;
     padding: .6rem 0;
     border-bottom: #666 solid 1px;
-    width: 80vw;
+    width: 88vw;
   }
 
   .search-form {
-    width: 80vw;
+    width: 88vw;
     padding: .8rem 0;
   }
 
@@ -560,7 +560,7 @@ nav {
   .search-form-input {
     margin: 0;
     height: 1.5rem;
-    width: 80vw;
+    width: 86vw;
   }
 
   .nav-content.open {
@@ -569,7 +569,7 @@ nav {
 
   .search-form-input:focus {
     outline: none;
-    width: 80vw;
+    width: 86vw;
   }
   
   .search-form-input:focus {
