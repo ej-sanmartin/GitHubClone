@@ -275,10 +275,12 @@ nav {
 .content-section {
   color: #8b949e;
   margin-left: 2rem;
+  margin-right: 2rem;
   grid-area: info;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 .horizontal-line-full-page {
@@ -292,6 +294,7 @@ nav {
 
 .search-repository-form {
   max-width: 70vw;
+  margin-right: 2rem;
   padding-top: .2rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px #eee;
@@ -495,8 +498,14 @@ nav {
 
 /* MEDIA QUERIES */
 /* For tablets and smaller screened laptops */
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1100px) {
+  .search-repository-form {
+    max-width: 65vw;
+  }
 
+  .repo {
+    width: 65vw;
+  }
 }
 
 /* For mobile phones, in portrait orientation */
