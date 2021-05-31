@@ -455,10 +455,10 @@ nav {
 }
 
 .language-circle {
-  margin-top: .18rem;
+  margin-top: .17rem;
   background-color: transparent;
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
 }
 
